@@ -60,3 +60,8 @@ def guess():
     
 if __name__ == '__main__':
     app.run(debug=True)
+
+# We use Flask to manage the backend. create_grid() initializes an empty grid and places ships randomly.
+# place_ships() places ships randomly without overlapping.
+# We have routes to start the game (/start_game) and handle guesses (/guess).
+# The is_off_grid() function checks if the user’s guess is valid.
