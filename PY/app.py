@@ -26,3 +26,8 @@ def place_ships(size):
 def is_off_grid(guess, size):
     x, y = guess
     return x < 0 or x >= size or y < 0 or y >= size
+
+    # Flask route to render the game page
+@app.route('/')
+def index():
+    return render_template('index.html')
