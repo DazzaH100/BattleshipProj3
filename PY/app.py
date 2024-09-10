@@ -39,3 +39,10 @@ def start_game():
     grid_size = int(request.json.get('grid_size', GRID_SIZE))
     grid, ships = create_grid(grid_size)
     return jsonify({'grid': grid, 'ships': ships})
+
+    # Route to handle a user guess
+@app.route('/guess', methods=['POST'])
+def guess():
+    guess = request.json.get('guess')
+    grid_size = request.json.get('grid_size')
+    ships = request.json.get('ships')
