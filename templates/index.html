@@ -20,3 +20,17 @@
     <script>
         let ships = [];
         let gridSize = 5;
+
+        function startGame() {
+            gridSize = document.getElementById('gridSize').value;
+            fetch('/start_game', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ grid_size: gridSize })
+            })
+            .then(response => response.json())
+            .then(data => {
+                ships = data.ships;
+                createGrid();
+            });
+        }
