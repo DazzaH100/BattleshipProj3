@@ -56,3 +56,7 @@ def guess():
         return jsonify({'result': 'hit'})
     else:
         return jsonify({'result': 'miss'})
+
+    
+if __name__ == '__main__':
+    app.run(debug=True)
