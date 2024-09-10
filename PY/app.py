@@ -7,4 +7,8 @@ app = Flask(__name__)
 GRID_SIZE = 5
 NUM_SHIPS = 3
 
-#
+# Function to generate the grid and randomly place ships
+def create_grid(size):
+    grid = [['.' for _ in range(size)] for _ in range(size)]
+    ships = place_ships(size)
+    return grid, ships
