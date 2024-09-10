@@ -12,3 +12,12 @@ def create_grid(size):
     grid = [['.' for _ in range(size)] for _ in range(size)]
     ships = place_ships(size)
     return grid, ships
+
+    # Function to place ships on the grid
+def place_ships(size):
+    ships = []
+    while len(ships) < NUM_SHIPS:
+        x, y = random.randint(0, size-1), random.randint(0, size-1)
+        if (x, y) not in ships:
+            ships.append((x, y))
+    return ships
