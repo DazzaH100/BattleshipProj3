@@ -50,3 +50,9 @@ def guess():
 # Check if the guess is off-grid
     if is_off_grid(guess, grid_size):
         return jsonify({'error': 'Your guess is off the grid!'})
+
+ # Check if the guess hits a ship
+    if tuple(guess) in ships:
+        return jsonify({'result': 'hit'})
+    else:
+        return jsonify({'result': 'miss'})
