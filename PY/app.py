@@ -21,3 +21,8 @@ def place_ships(size):
         if (x, y) not in ships:
             ships.append((x, y))
     return ships
+
+    # Check if a guess is off the grid
+def is_off_grid(guess, size):
+    x, y = guess
+    return x < 0 or x >= size or y < 0 or y >= size
