@@ -51,3 +51,22 @@
             }
         }
 
+        function makeGuess(x, y) {
+            fetch('/guess', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ guess: [x, y], grid_size: gridSize, ships: ships })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert(data.error);
+                } else {
+                    alert(data.result);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
+
