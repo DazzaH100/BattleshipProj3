@@ -46,3 +46,7 @@ def guess():
     guess = request.json.get('guess')
     grid_size = request.json.get('grid_size')
     ships = request.json.get('ships')
+
+# Check if the guess is off-grid
+    if is_off_grid(guess, grid_size):
+        return jsonify({'error': 'Your guess is off the grid!'})
