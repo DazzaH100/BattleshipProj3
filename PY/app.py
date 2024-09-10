@@ -31,3 +31,11 @@ def is_off_grid(guess, size):
 @app.route('/')
 def index():
     return render_template('index.html')
+
+    # Route to start a new game
+@app.route('/start_game', methods=['POST'])
+def start_game():
+    global GRID_SIZE
+    grid_size = int(request.json.get('grid_size', GRID_SIZE))
+    grid, ships = create_grid(grid_size)
+    return jsonify({'grid': grid, 'ships': ships})
